@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const basePath = process.env.NODE_ENV === "production" ? "/ember-oak-demo" : "";
+
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#0D0A07]">
@@ -13,7 +15,7 @@ export default function Hero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
       </video>
 
       {/* Subtle overlay to ensure text readability over video */}
