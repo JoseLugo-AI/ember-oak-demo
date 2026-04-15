@@ -18,9 +18,8 @@ export default function Hero() {
         <source src={`${basePath}/hero-video.mp4`} type="video/mp4" />
       </video>
 
-      {/* Moody overcast color grade */}
-      <div className="absolute inset-0 bg-[#1a2a3a]/50 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Light overlay for text readability */}
+      <div className="absolute inset-0 bg-black/15" />
 
       {/* Centered Wordmark */}
       <div className="relative z-10 h-full flex items-center justify-center">
