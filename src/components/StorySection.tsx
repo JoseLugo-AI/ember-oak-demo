@@ -15,8 +15,8 @@ export default function StorySection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="col-span-12 md:col-span-7"
           >
-            <div className="aspect-[4/3] bg-[#1e1b16] overflow-hidden flex items-center justify-center">
-              <span className="text-white/20 text-sm tracking-widest uppercase">Kitchen / Chef Photo</span>
+            <div className="aspect-[4/3] bg-[#1e1b16] overflow-hidden">
+              <img src={`${process.env.NODE_ENV === "production" ? "/ember-oak-demo" : ""}/photo-exterior.png`} alt="Castle exterior at dusk" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 

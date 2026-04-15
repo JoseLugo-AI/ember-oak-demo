@@ -42,8 +42,8 @@ export default function Introduction() {
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
             className="col-span-12 md:col-span-7 md:col-start-6"
           >
-            <div className="aspect-[1/1] bg-[#2a2520] overflow-hidden flex items-center justify-center">
-              <span className="text-white/20 text-sm tracking-widest uppercase">Dining Room Photo</span>
+            <div className="aspect-[1/1] bg-[#2a2520] overflow-hidden">
+              <img src={`${process.env.NODE_ENV === "production" ? "/ember-oak-demo" : ""}/photo-dining-room.png`} alt="Dining room ambiance" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>

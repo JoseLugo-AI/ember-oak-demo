@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const basePath = process.env.NODE_ENV === "production" ? "/ember-oak-demo" : "";
+
 export default function MenuSection() {
   return (
     <section id="menu" className="py-24 md:py-40">
@@ -38,8 +40,8 @@ export default function MenuSection() {
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
             className="col-span-12 md:col-span-6"
           >
-            <div className="aspect-square bg-[#2a2520] overflow-hidden flex items-center justify-center">
-              <span className="text-white/20 text-sm tracking-widest uppercase">Food Photo</span>
+            <div className="aspect-square bg-[#2a2520] overflow-hidden">
+              <img src={`${basePath}/photo-terrace.png`} alt="Castle terrace dining" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -53,8 +55,8 @@ export default function MenuSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="col-span-12 md:col-span-6"
           >
-            <div className="aspect-[3/4] bg-[#EDEAE5] overflow-hidden flex items-center justify-center">
-              <span className="text-[#272320]/20 text-sm tracking-widest uppercase">Plated Dish</span>
+            <div className="aspect-[3/4] bg-[#1e1b16] overflow-hidden">
+              <img src={`${basePath}/photo-dessert.png`} alt="Strawberry dessert" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 
@@ -65,8 +67,8 @@ export default function MenuSection() {
             transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
             className="col-span-12 md:col-span-6"
           >
-            <div className="aspect-[4/5] bg-[#EDEAE5] overflow-hidden flex items-center justify-center">
-              <span className="text-[#272320]/20 text-sm tracking-widest uppercase">Plated Dish</span>
+            <div className="aspect-[4/5] bg-[#EDEAE5] overflow-hidden">
+              <img src={`${basePath}/photo-pour.png`} alt="Chef pouring sauce" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -78,8 +80,8 @@ export default function MenuSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          <div className="aspect-[16/9] bg-[#1e1b16] overflow-hidden flex items-center justify-center">
-            <span className="text-white/20 text-sm tracking-widest uppercase">Chef Pouring / Action Shot</span>
+          <div className="aspect-[16/9] bg-[#1e1b16] overflow-hidden">
+            <img src={`${basePath}/photo-hall.png`} alt="Castle dining hall" className="w-full h-full object-cover" />
           </div>
         </motion.div>
       </div>
