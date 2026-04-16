@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Introduction from "@/components/Introduction";
 import StorySection from "@/components/StorySection";
-import FoodPlateSolo from "@/components/FoodPlateSolo";
+import FoodPlatePinned from "@/components/FoodPlatePinned";
 import PressAndPlate from "@/components/PressAndPlate";
 import FullBleedPhoto from "@/components/FullBleedPhoto";
 import ReservationCTA from "@/components/ReservationCTA";
@@ -16,7 +16,10 @@ export default function Home() {
         <Hero />
         <Introduction />
         <StorySection />
-        <FoodPlateSolo src="/photo-dessert.png" alt="Seasonal strawberry composition" />
+        <FoodPlatePinned
+          src="/photo-dessert.png"
+          alt="Seasonal strawberry composition, course centerpiece"
+        />
         <PressAndPlate />
         <FullBleedPhoto
           src="/photo-hall.png"
