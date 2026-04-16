@@ -1,11 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import { motion } from "framer-motion";
 
 const basePath = "/ember-oak-demo";
 
@@ -15,50 +10,22 @@ type Props = {
   aspect?: string;
 };
 
-export default function FullBleedPhoto({
-  src,
-  alt,
-  aspect = "aspect-[16/9]",
-}: Props) {
-  const container = useRef<HTMLDivElement>(null);
-  const frameRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useGSAP(
-    () => {
-      if (!imgRef.current || !frameRef.current) return;
-
-      gsap.fromTo(
-        imgRef.current,
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: {
-            trigger: frameRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-    },
-    { scope: container }
-  );
-
+export default function FullBleedPhoto({ src, alt, aspect = "aspect-[16/9]" }: Props) {
   return (
-    <section ref={container} className="py-16 md:py-24">
-      <div
-        ref={frameRef}
+    <section className="py-16 md:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 1, ease: "easeOut" }}
         className={`w-full ${aspect} overflow-hidden bg-[#1e1b16]`}
       >
         <img
-          ref={imgRef}
           src={`${basePath}${src}`}
           alt={alt}
-          className="w-full h-[116%] object-cover"
+          className="w-full h-full object-cover"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
