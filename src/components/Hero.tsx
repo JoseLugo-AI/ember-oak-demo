@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const basePath = process.env.NODE_ENV === "production" ? "/ember-oak-demo" : "";
+const basePath = "/ember-oak-demo";
 
 export default function Hero() {
   return (

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function Introduction() {
+export default function InThePress() {
   return (
     <section className="py-32 md:py-48">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
@@ -17,14 +17,17 @@ export default function Introduction() {
             className="text-[#9B9590] text-[11px] tracking-[0.2em] uppercase mb-8"
             style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
           >
-            An Invitation
+            In the Press
           </p>
           <p className="font-serif text-xl md:text-[1.35rem] leading-[1.7] text-[#272320] font-normal">
-            The opportunity to meet and serve you is one we don&apos;t take lightly.
-            Not for the past twelve years. Come spend an evening. Our kitchen is
-            anchored in open flame, seasonal ingredients, and a quiet devotion to
-            craft.
+            Ember &amp; Oak Named One of the Best New Restaurants in America.
           </p>
+          <a
+            href="#"
+            className="inline-block mt-6 font-serif text-lg text-[#272320] underline underline-offset-4 hover:no-underline transition-all"
+          >
+            Read here.
+          </a>
         </motion.div>
       </div>
     </section>
