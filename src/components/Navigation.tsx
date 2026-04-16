@@ -8,7 +8,8 @@ const navLinks = [
   { label: "Gift Cards", href: "#" },
   { label: "Menu", href: "#menu" },
   { label: "Our Story", href: "#story" },
-  { label: "Events", href: "#events" },
+  { label: "Wine", href: "#" },
+  { label: "Private Events", href: "#" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -27,19 +28,38 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Menu Button — always visible top right */}
+      {/* Desktop — visible vertical link stack top-right */}
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="hidden md:flex fixed top-8 right-10 z-50 flex-col items-end gap-2 mix-blend-difference"
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            onClick={(e) => handleClick(e, link.href)}
+            className="text-white/90 text-[13px] tracking-[0.18em] uppercase hover:text-white transition-colors duration-300"
+            style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </motion.nav>
+
+      {/* Mobile — menu button + overlay */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
         onClick={() => setOpen(!open)}
-        className="fixed top-8 right-8 z-50 text-white text-[13px] tracking-[0.2em] uppercase mix-blend-difference cursor-pointer"
+        className="md:hidden fixed top-6 right-6 z-50 text-white text-[13px] tracking-[0.2em] uppercase mix-blend-difference cursor-pointer"
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
       >
         {open ? "Close" : "Menu"}
       </motion.button>
 
-      {/* Full-screen overlay menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -47,7 +67,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-foreground flex items-center justify-center"
+            className="md:hidden fixed inset-0 z-40 bg-[#272320] flex items-center justify-center"
           >
             <nav className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
